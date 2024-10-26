@@ -31,7 +31,7 @@ os.makedirs(VISUALIZATION_FOLDER, exist_ok=True)
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
     temperature=0,
-    groq_api_key="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"
+    groq_api_key=""
 )
 
 @app.post("/upload/")
