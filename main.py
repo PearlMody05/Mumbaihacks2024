@@ -31,7 +31,7 @@ os.makedirs(VISUALIZATION_FOLDER, exist_ok=True)
 llm = ChatGroq(
     model="llama-3.1-70b-versatile",
     temperature=0,
-    groq_api_key="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"
+    groq_api_key="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"
 )
 
 @app.post("/upload/")
@@ -85,7 +85,7 @@ def textual_analysis(data):
         {data_sample}\n
         ###INSTRUCTION
         The data is from a csv file.
-        Your job is to Identify the most relevant columns for stock optimization analysis and inventory management. Additionally, define an optimization heuristic that would be most effective based on the identified columns. Then return the detailed analysis in the form of text of the data with the help of the heuristic calculations of each. Don't mention the heuristic calculation in the response. The response should be in the form of each member: analysis in the form of textual data. Only return valid JSON. 
+        Your job is to Identify the most relevant columns for stock optimization analysis and inventory management. Additionally, define an optimization heuristic function that would be most effective based on the identified columns. Then return the detailed analysis in the form of text of the data with the help of the heuristic calculations of each. Don't mention the heuristic calculation in the response. The response should be in the form of each member: analysis in the form of textual data. Only return valid JSON. 
         ### VALID JSON (NO PREAMBLE):
         """
     )
@@ -117,7 +117,7 @@ def generate_visualization_suggestions(data):
       {data_sample}\n
       ###INSTRUCTION
       The data is from a csv file.
-      Your job is to Extract the most informative columns. Then you calculate all the pairs of those columns. Then return them in JSON Format containing the following keys: column1 name :column2 name: type of plot you would suggest for its visualization. You can use any type of plot
+      Your job is to Extract the most informative columns. Then you calculate all the pairs of those columns that have some relationship with each other. Then return them in JSON Format containing the following keys: column1 name :column2 name: type of plot you would suggest for its visualization. You can use any type of plot
       Only return valid JSON. 
       ### VALID JSON (NO PREAMBLE):
     """)
